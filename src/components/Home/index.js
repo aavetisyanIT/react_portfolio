@@ -1,17 +1,55 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import LogoTitle from '../../assets/images/logo-home.png'
 import './index.scss'
+import AnimatedLetters from './../AnimatedLetters/index'
 
 const Home = () => {
+  const [letterClass, setLetterClass] = React.useState('text-animate')
+  const nameArray = ['v', 'e', 't', 'i', 's', 'y', 'a', 'n']
+  const jobArray = [
+    'w',
+    'e',
+    'b',
+    ' ',
+    'd',
+    'e',
+    'v',
+    'e',
+    'l',
+    'o',
+    'p',
+    'e',
+    'r',
+  ]
+
+  React.useEffect(() => {
+    return setTimeout(() => {
+      setLetterClass('text-animate-hover')
+    }, 4000)
+  }, [])
+
   return (
     <div className="container home-page">
       <div className="text-zone">
         <h1>
-          Hi, <br /> I'm
-          <img src={LogoTitle} alt="developer" />
-          vetisyan
+          <span className={letterClass}>H</span>
+          <span className={`${letterClass} _12`}>i,</span>
           <br />
-          web developer
+          <span className={`${letterClass} _13`}>I</span>
+          <span className={`${letterClass} _14`}>'m</span>
+          <img src={LogoTitle} alt="developer" />
+          <AnimatedLetters
+            letterClass={letterClass}
+            strArray={nameArray}
+            idx={15}
+          />
+          <br />
+          <AnimatedLetters
+            letterClass={letterClass}
+            strArray={jobArray}
+            idx={22}
+          />
         </h1>
         <h2>Frontend Developer / JavaScript Expert</h2>
         <Link to="/contact" className="flat-button">
