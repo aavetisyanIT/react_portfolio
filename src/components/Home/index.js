@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 import LogoTitle from '../../assets/images/logo-home.png'
 import './index.scss'
 import AnimatedLetters from './../AnimatedLetters/index'
+import Logo from './Logo'
 
 const Home = () => {
   const [letterClass, setLetterClass] = React.useState('text-animate')
@@ -56,6 +58,7 @@ const Home = () => {
           CONTACT ME
         </Link>
       </div>
+      <Logo />
     </div>
   )
 }
