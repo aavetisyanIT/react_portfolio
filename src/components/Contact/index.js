@@ -1,4 +1,6 @@
 import React from 'react'
+import emailjs from '@emailjs/browser'
+import Loader from 'react-loaders'
 
 import AnimatedLetters from './../AnimatedLetters/index'
 import './index.scss'
@@ -12,6 +14,27 @@ const Contact = () => {
       setLetterClass('text-animate-hover')
     }, 3000)
   }, [])
+
+  const sendEmail = (e) => {
+    e.preventDefault()
+
+    emailjs
+      .sendForm(
+        'artur-it',
+        'my_portfolio',
+        form.current,
+        'user_kpaeid3BF5jMfYaszgT7D'
+      )
+      .then(
+        () => {
+          alert('Message successfully sent!')
+          window.location.reload(false)
+        },
+        () => {
+          alert('Failed to send the message, please try again')
+        }
+      )
+  }
 
   return (
     <>
@@ -30,7 +53,7 @@ const Contact = () => {
             don't hesitate to contact me using below form either.
           </p>
           <div className="contact-form">
-            <form ref={form} onSubmit={null}>
+            <form ref={form} onSubmit={sendEmail}>
               <ul>
                 <li className="half">
                   <input placeholder="Name" type="text" name="name" required />
@@ -66,6 +89,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Loader type="pacman" />
     </>
   )
 }
