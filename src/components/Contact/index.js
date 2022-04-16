@@ -1,12 +1,13 @@
 import React from 'react'
 import emailjs from '@emailjs/browser'
 import Loader from 'react-loaders'
-
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+
 import AnimatedLetters from './../AnimatedLetters/index'
 import './index.scss'
 
 const Contact = () => {
+  const coordinates = [41.8089, -88.0112]
   const [letterClass, setLetterClass] = React.useState('text-animate')
   const form = React.useRef()
 
@@ -97,14 +98,14 @@ const Contact = () => {
           <br />
           <span>aavetisyanIT@gmail.com</span>
         </div>
-        {/* <div className="map-wrap">
-          <MapContainer center={[44.96366, 19.61045]} zoom={13}>
+        <div className="map-wrap">
+          <MapContainer center={coordinates} zoom={13}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[44.96366, 19.61045]}>
+            <Marker position={coordinates}>
               <Popup>Artur lives here, come over for a cup of coffee :)</Popup>
             </Marker>
           </MapContainer>
-        </div> */}
+        </div>
       </div>
       <Loader type="pacman" />
     </>
