@@ -6,6 +6,8 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import AnimatedLetters from './../AnimatedLetters/index'
 import './index.scss'
 
+//test commit 
+
 const Contact = () => {
   const coordinates = [41.8089, -88.0112]
   const [letterClass, setLetterClass] = React.useState('text-animate')
